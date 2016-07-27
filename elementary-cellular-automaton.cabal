@@ -1,0 +1,70 @@
+name:                elementary-cellular-automaton
+version:             0.1
+cabal-version:       >= 1.10
+build-type:          Simple
+license:             GPL-3
+license-file:        LICENSE
+copyright:           None asserted as per the license.
+author:              arobsonse@hotmail.co.uk
+maintainer:          arobsonse@hotmail.co.uk
+stability:           experimental
+homepage:            http://github.com/AaronRobson/elementary-cellular-automaton
+bug-reports:         http://github.com/AaronRobson/elementary-cellular-automaton/issues
+package-url:
+synopsis:            Makes song lyrics rude.
+description:         <http://github.com/AaronRobson/elementary-cellular-automaton elementary-cellular-automaton on GitHub>
+                     .
+                     http://mathworld.wolfram.com/ElementaryCellularAutomaton.html
+category:            Data
+tested-with:         GHC == 8.0.1
+extra-source-files:  README.md
+
+source-repository head
+  type:     git
+  location: http://github.com/AaronRobson/elementary-cellular-automaton
+
+library
+  default-language:
+    Haskell2010
+  hs-source-dirs:
+    src
+  exposed-modules:
+    Data.CellularAutomata.OneDimensional
+  build-depends:
+      base >= 4.6 && < 5.0
+    , MissingH
+
+executable elementary-cellular-automaton-commandline
+  default-language:
+    Haskell2010
+  hs-source-dirs:
+    elementary-cellular-automaton-commandline
+  main-is:
+    Main.hs
+  other-modules:
+    Data.CellularAutomata.OneDimensional.Commandline.Main
+  build-depends:
+      base
+    , elementary-cellular-automaton
+
+test-suite elementary-cellular-automaton-tests
+  default-language:
+    Haskell2010
+  hs-source-dirs:
+    tests, .
+  main-is:
+    Main.hs
+  Other-modules:
+      Data.CellularAutomata.OneDimensional.Tests
+  Ghc-options:
+      -Wall -fno-warn-orphans
+  type:
+    exitcode-stdio-1.0
+  build-depends:       
+      base
+    , elementary-cellular-automaton
+    --, QuickCheck
+    , HUnit
+    , test-framework
+    , test-framework-hunit
+    --, test-framework-quickcheck2
