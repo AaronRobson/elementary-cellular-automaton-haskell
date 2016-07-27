@@ -83,8 +83,8 @@ rule30Generator = ruleGenerator rule30
 main :: IO ()
 main = do
   print "Elementary Cellular Automata"
-  print $ findNeighbourhoodsNaive [False, True, True, False]
-  --print $ findNeighbourhoods startingOut
+  print $ findNeighbourhoodsNaive [True, False, False, True]
+  print $ findNeighbourhoods [True, False, False, True]
   --print $ ruleApplyToNeighbourhoods rule30 [(Neighbourhood False True False)]
 
   print "rule30Generator"
