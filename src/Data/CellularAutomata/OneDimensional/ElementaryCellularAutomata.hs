@@ -82,30 +82,30 @@ rule30Generator = ruleGenerator rule30
 
 main :: IO ()
 main = do
-  print "Elementary Cellular Automata"
-  print $ findNeighbourhoodsNaive [True, False, False, True]
-  print $ findNeighbourhoods [True, False, False, True]
-  --print $ ruleApplyToNeighbourhoods rule30 [(Neighbourhood False True False)]
+    print "Elementary Cellular Automata"
+    print $ findNeighbourhoodsNaive [True, False, False, True]
+    print $ findNeighbourhoods [True, False, False, True]
+    --print $ ruleApplyToNeighbourhoods rule30 [(Neighbourhood False True False)]
 
-  print "rule30Generator"
-  mapM_ print (take 4 rule30Generator)
+    print "rule30Generator"
+    mapM_ print (take 4 rule30Generator)
 
-  print "neighbourhoodNumber"
-  print $ neighbourhoodNumber (Neighbourhood True True True)
-  print $ neighbourhoodNumber (Neighbourhood True True False)
-  print $ neighbourhoodNumber (Neighbourhood True False True)
-  print $ neighbourhoodNumber (Neighbourhood True False False)
-  print $ neighbourhoodNumber (Neighbourhood False True True)
-  print $ neighbourhoodNumber (Neighbourhood False True False)
-  print $ neighbourhoodNumber (Neighbourhood False False True)
-  print $ neighbourhoodNumber (Neighbourhood False False False)
+    print "neighbourhoodNumber"
+    print $ neighbourhoodNumber (Neighbourhood True True True)
+    print $ neighbourhoodNumber (Neighbourhood True True False)
+    print $ neighbourhoodNumber (Neighbourhood True False True)
+    print $ neighbourhoodNumber (Neighbourhood True False False)
+    print $ neighbourhoodNumber (Neighbourhood False True True)
+    print $ neighbourhoodNumber (Neighbourhood False True False)
+    print $ neighbourhoodNumber (Neighbourhood False False True)
+    print $ neighbourhoodNumber (Neighbourhood False False False)
 
-  print "ruleApplyToNeighbourhood"
-  print $ ruleApplyToNeighbourhood rule30 (Neighbourhood True True True)
-  print $ ruleApplyToNeighbourhood rule30 (Neighbourhood True True False)
-  print $ ruleApplyToNeighbourhood rule30 (Neighbourhood True False True)
-  print $ ruleApplyToNeighbourhood rule30 (Neighbourhood True False False)
-  print $ ruleApplyToNeighbourhood rule30 (Neighbourhood False True True)
-  print $ ruleApplyToNeighbourhood rule30 (Neighbourhood False True False)
-  print $ ruleApplyToNeighbourhood rule30 (Neighbourhood False False True)
-  print $ ruleApplyToNeighbourhood rule30 (Neighbourhood False False False)
+    print "ruleApplyToNeighbourhood"
+    print $ ruleApplyToNeighbourhood rule30 (Neighbourhood True True True)
+    print $ ruleApplyToNeighbourhood rule30 (Neighbourhood True True False)
+    print $ ruleApplyToNeighbourhood rule30 (Neighbourhood True False True)
+    print $ ruleApplyToNeighbourhood rule30 (Neighbourhood True False False)
+    print $ ruleApplyToNeighbourhood rule30 (Neighbourhood False True True)
+    print $ ruleApplyToNeighbourhood rule30 (Neighbourhood False True False)
+    print $ ruleApplyToNeighbourhood rule30 (Neighbourhood False False True)
+    print $ ruleApplyToNeighbourhood rule30 (Neighbourhood False False False)
