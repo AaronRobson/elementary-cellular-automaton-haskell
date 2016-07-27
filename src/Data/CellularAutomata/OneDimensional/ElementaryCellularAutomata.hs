@@ -39,12 +39,16 @@ findNeighbourhoodsNaive (a:b:c:xs) = (Neighbourhood a b c) : (findNeighbourhoods
 findNeighbourhoodsNaive _ = []
 
 neighbourhoodNumber :: Neighbourhood -> Word8
-neighbourhoodNumber a = (if leftNeighbour a then 2^2
-                                            else 0) +
-                        (if middleNeighbour a then 2^1
-                                              else 0) +
-                        (if rightNeighbour a then 2^0
-                                             else 0)
+neighbourhoodNumber a =
+    (if leftNeighbour a
+       then 2^2
+       else 0) +
+    (if middleNeighbour a
+       then 2^1
+       else 0) +
+    (if rightNeighbour a
+       then 2^0
+       else 0)
 
 ruleApplyToNeighbourhood :: Rule -> Neighbourhood -> State
 ruleApplyToNeighbourhood rule neighbourhood = 0 < (rule .&. (2^(neighbourhoodNumber neighbourhood)))
