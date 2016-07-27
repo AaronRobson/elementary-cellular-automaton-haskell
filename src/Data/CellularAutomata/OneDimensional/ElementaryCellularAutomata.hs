@@ -57,12 +57,24 @@ ruleApplyToNeighbourhoods rule neighbourhoods =
 ruleApply :: Rule -> Line -> Line
 ruleApply rule line = ruleApplyToNeighbourhoods rule (findNeighbourhoods line)
 
+ruleGeneratorFromInitial :: Line -> Rule -> [Line]
+ruleGeneratorFromInitial initial rule = initial : (ruleGeneratorFromInitial (ruleApply rule initial) rule)
+
+ruleGenerator :: Rule -> [Line]
+ruleGenerator = ruleGeneratorFromInitial startingOut
+
 --Rule30 partially applied versions
 rule30 :: Rule
 rule30 = 30
 
 rule30Apply :: Line -> Line
 rule30Apply = ruleApply rule30
+
+rule30GeneratorFromInitial :: Line -> [Line]
+rule30GeneratorFromInitial line = ruleGeneratorFromInitial line rule30
+
+rule30Generator :: [Line]
+rule30Generator = ruleGenerator rule30
 
 main :: IO ()
 main = do
@@ -71,11 +83,8 @@ main = do
   --print $ findNeighbourhoods startingOut
   --print $ ruleApplyToNeighbourhoods rule30 [(Neighbourhood False True False)]
 
-  print "rule30Apply"
-  print startingOut
-  print $ rule30Apply startingOut
-  print $ rule30Apply (rule30Apply startingOut)
-  print $ rule30Apply (rule30Apply (rule30Apply startingOut))
+  print "rule30Generator"
+  mapM_ print (take 4 rule30Generator)
 
   print "neighbourhoodNumber"
   print $ neighbourhoodNumber (Neighbourhood True True True)
